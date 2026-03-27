@@ -596,7 +596,7 @@ document.getElementById('next').onclick=()=>{
 };
 
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  navigator.serviceWorker.register('./sw.js', {scope: './'}).then(r => console.log('SW registered', r.scope)).catch(e => console.log('SW failed', e));
 }
 
 renderCal();renderLog();renderStats();
